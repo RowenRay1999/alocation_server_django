@@ -18,7 +18,7 @@ class AreaData(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'area_data'
+        db_table = "area_data"
 
 
 class CommentData(models.Model):
@@ -27,14 +27,18 @@ class CommentData(models.Model):
     pois_id = models.PositiveIntegerField()
     root = models.PositiveIntegerField()
     parent = models.PositiveIntegerField()
-    commentcontent = models.CharField(db_column='commentContent', max_length=255)  # Field name made lowercase.
+    commentcontent = models.CharField(
+        db_column="commentContent", max_length=255
+    )  # Field name made lowercase.
     date = models.PositiveIntegerField()
-    commentlevel = models.PositiveIntegerField(db_column='commentLevel')  # Field name made lowercase.
+    commentlevel = models.PositiveIntegerField(
+        db_column="commentLevel"
+    )  # Field name made lowercase.
     type = models.PositiveIntegerField()
 
     class Meta:
         managed = False
-        db_table = 'comment_data'
+        db_table = "comment_data"
 
 
 class FeedbackData(models.Model):
@@ -50,7 +54,7 @@ class FeedbackData(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'feedback_data'
+        db_table = "feedback_data"
 
 
 class PoisData(models.Model):
@@ -69,16 +73,18 @@ class PoisData(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'pois_data'
+        db_table = "pois_data"
 
 
 class User(models.Model):
-    user_account = models.IntegerField(primary_key=True, db_comment='用户id')
+    user_account = models.PositiveIntegerField(primary_key=True, db_comment="用户id")
     user_phone = models.CharField(max_length=255, blank=True, null=True)
     user_email = models.CharField(max_length=255)
+    user_account_type = models.IntegerField()
+    user_wx_info = models.JSONField(blank=True, null=True)
     user_password = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255)
-    user_real_info = models.JSONField()
+    user_real_info = models.JSONField(blank=True, null=True)
     user_real_status = models.IntegerField()
     user_qr_code = models.CharField(max_length=255, blank=True, null=True)
     user_privilege = models.IntegerField()
@@ -86,11 +92,11 @@ class User(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'user'
+        db_table = "user"
 
 
 class UserData(models.Model):
-    user_account = models.IntegerField(primary_key=True, db_comment='用户id')
+    user_account = models.IntegerField(primary_key=True, db_comment="用户id")
     user_avatar = models.CharField(max_length=255, blank=True, null=True)
     user_bg = models.CharField(max_length=255, blank=True, null=True)
     user_info = models.JSONField(blank=True, null=True)
@@ -104,7 +110,7 @@ class UserData(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'user_data'
+        db_table = "user_data"
 
 
 class UserTag(models.Model):
@@ -114,4 +120,4 @@ class UserTag(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'user_tag'
+        db_table = "user_tag"
