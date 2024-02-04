@@ -11,7 +11,7 @@
  Target Server Version : 50744
  File Encoding         : 65001
 
- Date: 12/12/2023 01:11:11
+ Date: 04/02/2024 13:23:21
 */
 
 SET NAMES utf8mb4;
@@ -106,7 +106,7 @@ CREATE TABLE `pois_data`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `user_account` int(255) UNSIGNED ZEROFILL NOT NULL COMMENT '用户id',
+  `user_account` int(255) UNSIGNED NOT NULL COMMENT '用户id',
   `user_phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
